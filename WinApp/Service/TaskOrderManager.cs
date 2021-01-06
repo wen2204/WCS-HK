@@ -62,10 +62,10 @@ namespace iFactoryApp.Service
                 RFID_ReadSigTag.PropertyChanged += RFID_ReadSigTag_PropertyChanged; ;
             }
 
-            TagList.GetTag("graphic_carton_sn_sig", out SnSig1Tag, "FxPLC");//彩箱SN检测
-            TagList.GetTag("product_sn_sig", out SnSig2Tag, "FxPLC");//产品SN检测
-            TagList.GetTag("graphic_carton_sn_deal", out SnDeal1Tag, "FxPLC");//彩箱SN处理
-            TagList.GetTag("product_sn_deal", out SnDeal2Tag, "FxPLC");//产品SN处理
+            TagList.GetTag("product_sn_sig", out SnSig1Tag, "FxPLC");//产品SN检测
+            TagList.GetTag("graphic_carton_sn_sig", out SnSig2Tag, "FxPLC");//彩箱SN检测
+            TagList.GetTag("product_sn_deal", out SnDeal1Tag, "FxPLC");//产品SN处理
+            TagList.GetTag("graphic_carton_sn_deal", out SnDeal2Tag, "FxPLC");//彩箱SN处理
 
             if (SnSig1Tag != null)
             {
