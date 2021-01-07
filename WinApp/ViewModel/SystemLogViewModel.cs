@@ -130,7 +130,16 @@ namespace iFactoryApp.ViewModel
 
         public void AddNewAckWindowInfo(string Content, Tag<short> RstTag, short RstValue)
         {
-            throw new NotImplementedException();
+            if (operatesCollection.Count >= 500)
+            {
+                ObservableCollectionHelper.ClearItem<OperateStatus>(operatesCollection);
+            }
+            OperateStatus operateStatus = new OperateStatus(Content, LogTypeEnum.Error);
+            ObservableCollectionHelper.InsertItem<OperateStatus>(operatesCollection, operateStatus);//增加记录
+            _log.WriteLog(Content);
+            ErrMessageViewModel errMessageViewModel = new ErrMessageViewModel() { IsAutoAck = false, MessageContent = Content, RstTag = RstTag, RstValue = RstValue };
+
+            GlobalData.ErrMsgObject.SendErrorMessage(errMessageViewModel);//错误消息自动弹窗
         }
         #endregion
     }

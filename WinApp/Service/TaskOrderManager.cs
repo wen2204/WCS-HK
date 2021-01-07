@@ -164,7 +164,7 @@ namespace iFactoryApp.Service
             }
             else if (info.InfoType == RFIDInfoEnum.WriteError)//写入失败
             {
-                _systemLogViewModel.AddMewStatus(info.Content, LogTypeEnum.Error);
+                _systemLogViewModel.AddNewAckWindowInfo(info.Content, null,-1);
                
                 if (_taskOrderViewModel.SelectedModel != null)
                 {
@@ -274,7 +274,7 @@ namespace iFactoryApp.Service
                 {
                     if (Snsig1)//信号未复位
                     {
-                        _systemLogViewModel.AddNewAutoAckWindowInfo($"产品相机未检测到条码，当前标签值={tag.TagValue},开始写入PLC失败信号值=3",null,0);
+                        _systemLogViewModel.AddNewAckWindowInfo($"产品相机未检测到条码，当前标签值={tag.TagValue},开始写入PLC失败信号值=3",null,0);
                         flagWrite(3, sn1: true, sn2: false);//未查找到条码
                         Snsig1 = false;
                     }
@@ -301,7 +301,7 @@ namespace iFactoryApp.Service
                 {
                     if (Snsig2)//信号未复位
                     {
-                        _systemLogViewModel.AddNewAutoAckWindowInfo($"彩箱相机未检测到条码，当前标签值={tag.TagValue},开始写入PLC失败信号值=3",null,0);
+                        _systemLogViewModel.AddNewAckWindowInfo($"彩箱相机未检测到条码，当前标签值={tag.TagValue},开始写入PLC失败信号值=3",null,0);
                         flagWrite(3, sn1: false, sn2: true);//未查找到条码
                         Snsig2 = false;
                     }
