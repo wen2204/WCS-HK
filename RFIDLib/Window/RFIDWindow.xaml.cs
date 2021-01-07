@@ -261,8 +261,8 @@ namespace RFIDLib
                         soundPlay.playFail();
                         textBox_info_box.Background = new SolidColorBrush(Constans.errorColor);
                         textBox_info_box.Text = dataUtils.codeAnalyse(code);
-                        RfidInfo info = new RfidInfo() { InfoType = RFIDInfoEnum.WriteError, Content = $"写入RFID失败{factory_num},{ product_num },{textBox_serial_NO.Text},{product_date}"};
-                        SendRfidOperateEvent(info);
+                        //RfidInfo info = new RfidInfo() { InfoType = RFIDInfoEnum.WriteError, Content = $"写入RFID失败{factory_num},{ product_num },{textBox_serial_NO.Text},{product_date}"};
+                        //SendRfidOperateEvent(info);
                     }
                 }
             }
