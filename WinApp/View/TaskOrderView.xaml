@@ -83,9 +83,12 @@
             </GroupBox>
         </Grid>
         <Image Grid.Row="1" Source="/WinApp;component/Resources/flow.jpg" Stretch="Fill"/>
-        <iFactoryApp:StatusControl x:Name="led1" HorizontalAlignment="Left" Height="16" Margin="537,224,0,0" Grid.Row="1" VerticalAlignment="Top" Width="16" PlcName="FxPLC" TagName="normal_machine_run" RenderTransformOrigin="0.417,-2.337" />
-        <iFactoryApp:StatusControl x:Name="led2" HorizontalAlignment="Left" Height="16" Margin="786,71,0,0" Grid.Row="1" VerticalAlignment="Top" Width="16" PlcName="FxPLC" TagName="graphic_machine_run" RenderTransformOrigin="0.417,-2.337" />
+        <iFactoryApp:StatusControl x:Name="led2" HorizontalAlignment="Left" Height="16" Margin="786,71,0,0" Grid.Row="1" VerticalAlignment="Top" Width="16" PlcName="FxPLC" TagName="system_run" RenderTransformOrigin="0.417,-2.337" />
         <iFactoryApp:StatusControl x:Name="led3" HorizontalAlignment="Left" Height="16" Margin="181,105,0,0" Grid.Row="1" VerticalAlignment="Top" Width="16" PlcName="FxPLC" TagName="RFID" RenderTransformOrigin="0.417,-2.337" />
         <iFactoryApp:StatusControl x:Name="led2_Copy" HorizontalAlignment="Left" Height="16" Margin="732,105,0,0" Grid.Row="1" VerticalAlignment="Top" Width="16" PlcName="FxPLC" TagName="graphic_machine_run" RenderTransformOrigin="0.417,-2.337" />
+        <iFactoryApp:StatusControl x:Name="led2_Copy1" HorizontalAlignment="Left" Height="16" Margin="801,192,0,0" Grid.Row="1" VerticalAlignment="Top" Width="16" PlcName="FxPLC" TagName="graphic_machine_run" RenderTransformOrigin="0.417,-2.337" />
+        <iFactoryApp:StatusControl x:Name="led2_Copy2" HorizontalAlignment="Left" Height="16" Margin="614,192,0,0" Grid.Row="1" VerticalAlignment="Top" Width="16" PlcName="FxPLC" TagName="graphic_machine_run" RenderTransformOrigin="0.417,-2.337" />
+        <iFactoryApp:StatusControl x:Name="led2_Copy3" HorizontalAlignment="Left" Height="16" Margin="537,192,0,0" Grid.Row="1" VerticalAlignment="Top" Width="16" PlcName="FxPLC" TagName="graphic_machine_run" RenderTransformOrigin="0.417,-2.337" />
+        <iFactoryApp:StatusControl x:Name="led2_Copy4" HorizontalAlignment="Left" Height="16" Margin="699,283,0,0" Grid.Row="1" VerticalAlignment="Top" Width="16" PlcName="FxPLC" TagName="graphic_machine_run" RenderTransformOrigin="0.417,-2.337" />
     </Grid>
 </Page>
