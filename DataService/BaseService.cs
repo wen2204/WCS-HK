@@ -319,7 +319,7 @@ namespace iFactory.DataService
                 db.CodeFirst.InitTables(typeof(T));
                 return true;
             }
-            catch
+            catch(Exception ex)
             {
                 return false;
             }

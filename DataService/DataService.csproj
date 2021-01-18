@@ -91,6 +91,7 @@
     <Compile Include="IService\Order\ITaskOrderDetailService.cs" />
     <Compile Include="IService\Order\ITaskOrderDetailHistoryService.cs" />
     <Compile Include="IService\Order\ITaskOrderHistoryService.cs" />
+    <Compile Include="IService\Order\ITaskOrderHistoryViewService.cs" />
     <Compile Include="IService\Order\ITaskOrderService.cs" />
     <Compile Include="IService\Tag\IDatabaseTagGroupService.cs" />
     <Compile Include="IService\Tag\IDatabaseTagService.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="Service\Order\TaskOrderDetailHistoryService.cs" />
     <Compile Include="Service\Order\TaskOrderDetailService.cs" />
     <Compile Include="Service\Order\TaskOrderHistoryService.cs" />
+    <Compile Include="Service\Order\TaskOrderHistoryViewService.cs" />
     <Compile Include="Service\Order\TaskOrderService.cs" />
     <Compile Include="Service\Tag\DatabaseTagGroupService.cs" />
     <Compile Include="Service\Tag\DatabaseTagService.cs" />

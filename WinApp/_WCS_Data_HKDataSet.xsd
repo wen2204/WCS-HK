@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="_WCS_Data_HKDataSet" targetNamespace="http://tempuri.org/_WCS_Data_HKDataSet.xsd" xmlns:mstns="http://tempuri.org/_WCS_Data_HKDataSet.xsd" xmlns="http://tempuri.org/_WCS_Data_HKDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="Data Source=RNFY07VJWONLQC8;Initial Catalog=WCS_Data-HK;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="rnfy07vjwonlqc8.WCS_Data-HK.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="task_order_history_viewTableAdapter" GeneratorDataComponentClassName="task_order_history_viewTableAdapter" Name="task_order_history_view" UserDataComponentName="task_order_history_viewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="rnfy07vjwonlqc8.WCS_Data-HK.dbo" DbObjectName="[WCS_Data-HK].dbo.task_order_history_view" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id, end_time, pack_mode, insert_time, start_time, order_status, product_count, defective_count, enable_check, product_name, product_size, graphic_carton_size, noraml_carton_size, outer_carton_size, pallet_size, robot_pg_no, pallet_num, open_machine_mode, barcode_machine_mode, sn_barcode_enable, card_machine_enable, plate_enable, bubble_cover_enable, box_barcode, box_insert_time FROM dbo.task_order_history_view</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="end_time" DataSetColumn="end_time" />
+              <Mapping SourceColumn="pack_mode" DataSetColumn="pack_mode" />
+              <Mapping SourceColumn="insert_time" DataSetColumn="insert_time" />
+              <Mapping SourceColumn="start_time" DataSetColumn="start_time" />
+              <Mapping SourceColumn="order_status" DataSetColumn="order_status" />
+              <Mapping SourceColumn="product_count" DataSetColumn="product_count" />
+              <Mapping SourceColumn="defective_count" DataSetColumn="defective_count" />
+              <Mapping SourceColumn="enable_check" DataSetColumn="enable_check" />
+              <Mapping SourceColumn="product_name" DataSetColumn="product_name" />
+              <Mapping SourceColumn="product_size" DataSetColumn="product_size" />
+              <Mapping SourceColumn="graphic_carton_size" DataSetColumn="graphic_carton_size" />
+              <Mapping SourceColumn="noraml_carton_size" DataSetColumn="noraml_carton_size" />
+              <Mapping SourceColumn="outer_carton_size" DataSetColumn="outer_carton_size" />
+              <Mapping SourceColumn="pallet_size" DataSetColumn="pallet_size" />
+              <Mapping SourceColumn="robot_pg_no" DataSetColumn="robot_pg_no" />
+              <Mapping SourceColumn="pallet_num" DataSetColumn="pallet_num" />
+              <Mapping SourceColumn="open_machine_mode" DataSetColumn="open_machine_mode" />
+              <Mapping SourceColumn="barcode_machine_mode" DataSetColumn="barcode_machine_mode" />
+              <Mapping SourceColumn="sn_barcode_enable" DataSetColumn="sn_barcode_enable" />
+              <Mapping SourceColumn="card_machine_enable" DataSetColumn="card_machine_enable" />
+              <Mapping SourceColumn="plate_enable" DataSetColumn="plate_enable" />
+              <Mapping SourceColumn="bubble_cover_enable" DataSetColumn="bubble_cover_enable" />
+              <Mapping SourceColumn="box_barcode" DataSetColumn="box_barcode" />
+              <Mapping SourceColumn="box_insert_time" DataSetColumn="box_insert_time" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="_WCS_Data_HKDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="_WCS_Data_HKDataSet" msprop:Generator_UserDSName="_WCS_Data_HKDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="task_order_history_view" msprop:Generator_TableClassName="task_order_history_viewDataTable" msprop:Generator_TableVarName="tabletask_order_history_view" msprop:Generator_TablePropName="task_order_history_view" msprop:Generator_RowDeletingName="task_order_history_viewRowDeleting" msprop:Generator_RowChangingName="task_order_history_viewRowChanging" msprop:Generator_RowEvHandlerName="task_order_history_viewRowChangeEventHandler" msprop:Generator_RowDeletedName="task_order_history_viewRowDeleted" msprop:Generator_UserTableName="task_order_history_view" msprop:Generator_RowChangedName="task_order_history_viewRowChanged" msprop:Generator_RowEvArgName="task_order_history_viewRowChangeEvent" msprop:Generator_RowClassName="task_order_history_viewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="end_time" msprop:Generator_ColumnVarNameInTable="columnend_time" msprop:Generator_ColumnPropNameInRow="end_time" msprop:Generator_ColumnPropNameInTable="end_timeColumn" msprop:Generator_UserColumnName="end_time" type="xs:dateTime" />
+              <xs:element name="pack_mode" msprop:Generator_ColumnVarNameInTable="columnpack_mode" msprop:Generator_ColumnPropNameInRow="pack_mode" msprop:Generator_ColumnPropNameInTable="pack_modeColumn" msprop:Generator_UserColumnName="pack_mode" type="xs:int" />
+              <xs:element name="insert_time" msprop:Generator_ColumnVarNameInTable="columninsert_time" msprop:Generator_ColumnPropNameInRow="insert_time" msprop:Generator_ColumnPropNameInTable="insert_timeColumn" msprop:Generator_UserColumnName="insert_time" type="xs:dateTime" />
+              <xs:element name="start_time" msprop:Generator_ColumnVarNameInTable="columnstart_time" msprop:Generator_ColumnPropNameInRow="start_time" msprop:Generator_ColumnPropNameInTable="start_timeColumn" msprop:Generator_UserColumnName="start_time" type="xs:dateTime" />
+              <xs:element name="order_status" msprop:Generator_ColumnVarNameInTable="columnorder_status" msprop:Generator_ColumnPropNameInRow="order_status" msprop:Generator_ColumnPropNameInTable="order_statusColumn" msprop:Generator_UserColumnName="order_status" type="xs:int" minOccurs="0" />
+              <xs:element name="product_count" msprop:Generator_ColumnVarNameInTable="columnproduct_count" msprop:Generator_ColumnPropNameInRow="product_count" msprop:Generator_ColumnPropNameInTable="product_countColumn" msprop:Generator_UserColumnName="product_count" type="xs:int" minOccurs="0" />
+              <xs:element name="defective_count" msprop:Generator_ColumnVarNameInTable="columndefective_count" msprop:Generator_ColumnPropNameInRow="defective_count" msprop:Generator_ColumnPropNameInTable="defective_countColumn" msprop:Generator_UserColumnName="defective_count" type="xs:int" minOccurs="0" />
+              <xs:element name="enable_check" msprop:Generator_ColumnVarNameInTable="columnenable_check" msprop:Generator_ColumnPropNameInRow="enable_check" msprop:Generator_ColumnPropNameInTable="enable_checkColumn" msprop:Generator_UserColumnName="enable_check" type="xs:boolean" />
+              <xs:element name="product_name" msprop:Generator_ColumnVarNameInTable="columnproduct_name" msprop:Generator_ColumnPropNameInRow="product_name" msprop:Generator_ColumnPropNameInTable="product_nameColumn" msprop:Generator_UserColumnName="product_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="product_size" msprop:Generator_ColumnVarNameInTable="columnproduct_size" msprop:Generator_ColumnPropNameInRow="product_size" msprop:Generator_ColumnPropNameInTable="product_sizeColumn" msprop:Generator_UserColumnName="product_size" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="graphic_carton_size" msprop:Generator_ColumnVarNameInTable="columngraphic_carton_size" msprop:Generator_ColumnPropNameInRow="graphic_carton_size" msprop:Generator_ColumnPropNameInTable="graphic_carton_sizeColumn" msprop:Generator_UserColumnName="graphic_carton_size" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="noraml_carton_size" msprop:Generator_ColumnVarNameInTable="columnnoraml_carton_size" msprop:Generator_ColumnPropNameInRow="noraml_carton_size" msprop:Generator_ColumnPropNameInTable="noraml_carton_sizeColumn" msprop:Generator_UserColumnName="noraml_carton_size" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="outer_carton_size" msprop:Generator_ColumnVarNameInTable="columnouter_carton_size" msprop:Generator_ColumnPropNameInRow="outer_carton_size" msprop:Generator_ColumnPropNameInTable="outer_carton_sizeColumn" msprop:Generator_UserColumnName="outer_carton_size" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pallet_size" msprop:Generator_ColumnVarNameInTable="columnpallet_size" msprop:Generator_ColumnPropNameInRow="pallet_size" msprop:Generator_ColumnPropNameInTable="pallet_sizeColumn" msprop:Generator_UserColumnName="pallet_size" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="robot_pg_no" msprop:Generator_ColumnVarNameInTable="columnrobot_pg_no" msprop:Generator_ColumnPropNameInRow="robot_pg_no" msprop:Generator_ColumnPropNameInTable="robot_pg_noColumn" msprop:Generator_UserColumnName="robot_pg_no" type="xs:int" minOccurs="0" />
+              <xs:element name="pallet_num" msprop:Generator_ColumnVarNameInTable="columnpallet_num" msprop:Generator_ColumnPropNameInRow="pallet_num" msprop:Generator_ColumnPropNameInTable="pallet_numColumn" msprop:Generator_UserColumnName="pallet_num" type="xs:int" />
+              <xs:element name="open_machine_mode" msprop:Generator_ColumnVarNameInTable="columnopen_machine_mode" msprop:Generator_ColumnPropNameInRow="open_machine_mode" msprop:Generator_ColumnPropNameInTable="open_machine_modeColumn" msprop:Generator_UserColumnName="open_machine_mode" type="xs:int" minOccurs="0" />
+              <xs:element name="barcode_machine_mode" msprop:Generator_ColumnVarNameInTable="columnbarcode_machine_mode" msprop:Generator_ColumnPropNameInRow="barcode_machine_mode" msprop:Generator_ColumnPropNameInTable="barcode_machine_modeColumn" msprop:Generator_UserColumnName="barcode_machine_mode" type="xs:int" minOccurs="0" />
+              <xs:element name="sn_barcode_enable" msprop:Generator_ColumnVarNameInTable="columnsn_barcode_enable" msprop:Generator_ColumnPropNameInRow="sn_barcode_enable" msprop:Generator_ColumnPropNameInTable="sn_barcode_enableColumn" msprop:Generator_UserColumnName="sn_barcode_enable" type="xs:boolean" minOccurs="0" />
+              <xs:element name="card_machine_enable" msprop:Generator_ColumnVarNameInTable="columncard_machine_enable" msprop:Generator_ColumnPropNameInRow="card_machine_enable" msprop:Generator_ColumnPropNameInTable="card_machine_enableColumn" msprop:Generator_UserColumnName="card_machine_enable" type="xs:boolean" minOccurs="0" />
+              <xs:element name="plate_enable" msprop:Generator_ColumnVarNameInTable="columnplate_enable" msprop:Generator_ColumnPropNameInRow="plate_enable" msprop:Generator_ColumnPropNameInTable="plate_enableColumn" msprop:Generator_UserColumnName="plate_enable" type="xs:boolean" minOccurs="0" />
+              <xs:element name="bubble_cover_enable" msprop:Generator_ColumnVarNameInTable="columnbubble_cover_enable" msprop:Generator_ColumnPropNameInRow="bubble_cover_enable" msprop:Generator_ColumnPropNameInTable="bubble_cover_enableColumn" msprop:Generator_UserColumnName="bubble_cover_enable" type="xs:boolean" minOccurs="0" />
+              <xs:element name="box_barcode" msprop:Generator_ColumnVarNameInTable="columnbox_barcode" msprop:Generator_ColumnPropNameInRow="box_barcode" msprop:Generator_ColumnPropNameInTable="box_barcodeColumn" msprop:Generator_UserColumnName="box_barcode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="box_insert_time" msprop:Generator_ColumnVarNameInTable="columnbox_insert_time" msprop:Generator_ColumnPropNameInRow="box_insert_time" msprop:Generator_ColumnPropNameInTable="box_insert_timeColumn" msprop:Generator_UserColumnName="box_insert_time" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:task_order_history_view" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

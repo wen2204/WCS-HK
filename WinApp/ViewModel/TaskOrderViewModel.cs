@@ -157,10 +157,12 @@ namespace iFactoryApp.ViewModel
                         TaskOrderDetailHistory history = new TaskOrderDetailHistory()
                         {
                             insert_time = item.insert_time,
+                            box_barcode = item.box_barcode,
                             order_id = (int)id
                         };
                         _taskOrderDetailHistoryService.Insert(history);
                     }
+                    _taskOrderDetailService.Delete(x => x.order_id == model.id);
                 }
                 Remove(model);
                 return true;

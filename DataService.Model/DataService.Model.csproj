@@ -91,6 +91,7 @@
     <Compile Include="OrderAndPlan\TaskOrder.cs" />
     <Compile Include="OrderAndPlan\TaskOrderDetail.cs" />
     <Compile Include="OrderAndPlan\TaskOrderDetailHistory.cs" />
+    <Compile Include="OrderAndPlan\TaskOrderHistoryView.cs" />
     <Compile Include="OrderAndPlan\TaskOrderHistory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tag\DatabaseTagGroup.cs" />

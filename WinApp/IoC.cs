@@ -77,6 +77,7 @@ namespace iFactoryApp
             Container.RegisterType<ITaskOrderHistoryService, TaskOrderHistoryService>();
             Container.RegisterType<ITaskOrderDetailService, TaskOrderDetailService>();
             Container.RegisterType<ITaskOrderDetailHistoryService, TaskOrderDetailHistoryService>();
+            Container.RegisterType<ITaskOrderHistoryViewService, TaskOrderHistoryViewService>();
 
             CreateTable();
         }
