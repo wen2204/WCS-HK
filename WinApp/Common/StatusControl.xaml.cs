@@ -91,6 +91,7 @@ namespace iFactoryApp
                 if (tag != null)
                 {
                     tag.PropertyChanged += Tag_PropertyChanged;
+                    Tag_PropertyChanged(null,null);
                 }
             }
             get => _TagName;
