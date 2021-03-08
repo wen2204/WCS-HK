@@ -19,7 +19,7 @@ namespace RFIDLib
     public partial class RFIDWindow : Page
     {
         SerialPortUtils serialPortUtils = new SerialPortUtils();
-        SerialPort serialPort = new SerialPort();//当前选择的串口
+        SerialPort serialPort;//当前选择的串口
         string recieveData = "";
         LogHandleUtils logHandleUtils = new LogHandleUtils();
         DataHandleUtils dataHandleUtils = new DataHandleUtils();
@@ -38,7 +38,7 @@ namespace RFIDLib
         string work_command_num;
         int serial_num_int;
         bool bReadSuccessiveFlag = false;
-
+        private string comName = "COM1";
         private char[] HexChar = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
 
         public RFIDWindow(string ComPortName,bool Readmode=true)
@@ -51,20 +51,21 @@ namespace RFIDLib
             //Check serial ports
             string[] portList = serialPortUtils.getPortNameList();
             textBoxCom.Text = ComPortName;
-
-            serialPort = serialPortUtils.OpenPort(ComPortName, logHandleUtils);
-            if(serialPort.IsOpen)
-            {
-                textBox_info_box.Text = ComPortName + "已打开";
-                logHandleUtils.writeLog(ComPortName + "已打开");
-            }
-            else
-            {
-                textBox_info_box.Text = ComPortName + "打开失败";
-                logHandleUtils.writeLog(ComPortName + "打开失败");
-                RfidInfo info = new RfidInfo() { InfoType = RFIDInfoEnum.PortError, Content = $"RFID端口{ComPortName}打开失败" };
-                SendRfidOperateEvent(info);
-            }
+            comName = ComPortName;
+            SerialPortHandle(true);
+            //serialPort = serialPortUtils.OpenPort(ComPortName, logHandleUtils);
+            //if(serialPort.IsOpen)
+            //{
+            //    textBox_info_box.Text = ComPortName + "已打开";
+            //    logHandleUtils.writeLog(ComPortName + "已打开");
+            //}
+            //else
+            //{
+            //    textBox_info_box.Text = ComPortName + "打开失败";
+            //    logHandleUtils.writeLog(ComPortName + "打开失败");
+            //    RfidInfo info = new RfidInfo() { InfoType = RFIDInfoEnum.PortError, Content = $"RFID端口{ComPortName}打开失败" };
+            //    SendRfidOperateEvent(info);
+            //}
           
             string configPath = configHandleUtils.getConfigFilePath();
             string configString = File.ReadAllText(configPath, Encoding.UTF8);
@@ -91,18 +92,18 @@ namespace RFIDLib
             string monthDay = dt.ToString("MMdd");
             string year = dt.ToString("yyyy").Substring(2);
             textBox_product_date.Text = year + monthDay;
-            
             readTimer.Interval = 200;
             readTimer.Enabled = false;
             readTimer.Tick += new EventHandler(Timer_TimesUp);
 
             if (Readmode)
             {
-                labelMode.Content = "当前模式为连续读取";
+                labelMode.Content = "当前为连续读卡";
+                button_read_successive_Click(null,null);
             }
             else
             {
-                labelMode.Content = "当前模式为写入";
+                labelMode.Content = "当前为写入卡模式";
             }
         }
         private int count = 0;
@@ -114,7 +115,7 @@ namespace RFIDLib
             ++count;
             if(count>=20)//间隔一定时间自动检测串口是否打开
             {
-                count = 10;
+                count = 0;
                 SerialPortHandle(true);
             }
            
@@ -236,7 +237,7 @@ namespace RFIDLib
                         result = getFilterSN();
                         string[] sn = dataUtils.getRecieveSN(recieveData);
                         //textBox_info_box.Text = result + "\n" + "sn:" + sn[0] + "\n" + "滤芯使用时长(秒):" + sn[1];
-                        textBox_info_box.Text = "烧写成功！\n" + "sn:" + sn[0] + "\n" + "滤芯使用时长(秒):" + sn[1];
+                        textBox_info_box.Text = $"{DateTime.Now.ToLongTimeString()}"+"烧写成功！\n" + "sn:" + sn[0] + "\n" + "滤芯使用时长(秒):" + sn[1];
   
                         textBox_info_box.Background = new SolidColorBrush(Constans.successColor);
                         string data = factory_num + "\t" + product_num + "\t" + textBox_serial_NO.Text + "\t" + product_date + "\t" + sn[0];
@@ -425,7 +426,6 @@ namespace RFIDLib
         {
             if (serialPort != null && serialPort.IsOpen)
             {
-                
                 try
                 {
                     serialPort.Write(Constans.getFilterDataCode, 0, Constans.getFilterDataCode.Length);
@@ -443,10 +443,7 @@ namespace RFIDLib
                             sleep = sleep + sleepTime;
                         }
                     }
-
-
-
-                    logHandleUtils.writeLog("读取滤芯数据。");
+                    logHandleUtils.writeLog($"{DateTime.Now.ToLongTimeString()}" + "读取滤芯数据 ");
                 }
                 catch (Exception ex)
                 {
@@ -461,7 +458,7 @@ namespace RFIDLib
             }
             else
             {
-                return "请选择串口。";
+                return "串口未打开，请选择串口进行打开。";
             }
 
         }
@@ -497,7 +494,7 @@ namespace RFIDLib
             }
             else
             {
-                return "请选择串口。";
+                return "串口未打开，请选择串口进行打开。";
             }
         }
 
@@ -535,7 +532,7 @@ namespace RFIDLib
             {
                 textBox_info_box.Background = new SolidColorBrush(Constans.errorColor);
                 soundPlay.playFail();
-                textBox_info_box.Text= "请选择串口。";
+                textBox_info_box.Text= "串口未打开，请选择串口进行打开。";
             }
         }
         public bool IsReadSuccess = false;
@@ -633,7 +630,14 @@ namespace RFIDLib
             {
                 textBox_info_box.Background = new SolidColorBrush(Constans.errorColor);
                 soundPlay.playFail();
-                textBox_info_box.Text = "请选择串口。";
+                if(!serialPort.IsOpen)
+                {
+                    textBox_info_box.Text = "串口未打开，请打开串口";
+                }
+                else
+                {
+                    textBox_info_box.Text = "读取失败";
+                }
             }            
         }
 
@@ -856,7 +860,7 @@ namespace RFIDLib
                         result = getFilterSN();
                         string[] sn = dataUtils.getRecieveSN(recieveData);
                         //textBox_info_box.Text = result + "\n" + "sn:" + sn[0] + "\n" + "滤芯使用时长(秒):" + sn[1];
-                        textBox_info_box.Text = "重新烧写成功！\n" + "sn:" + sn[0] + "\n" + "滤芯使用时长(秒):" + sn[1];
+                        textBox_info_box.Text = $"{DateTime.Now.ToLongTimeString()}"+ "重新烧写成功！\n" + "sn:" + sn[0] + "\n" + "滤芯使用时长(秒):" + sn[1];
 
                         textBox_info_box.Background = new SolidColorBrush(Constans.successColor);
                         string data = factory_num + "\t" + product_num + "\t" + textBox_serial_NO.Text + "\t" + product_date + "\t" + sn[0];
@@ -894,7 +898,6 @@ namespace RFIDLib
                     RfidInfo info = new RfidInfo() { InfoType = RFIDInfoEnum.WriteError, Content = $"重新写入RFID失败。流水号需为数字{factory_num},{ product_num },{textBox_serial_NO.Text},{product_date}" };
                     SendRfidOperateEvent(info);
                 }
-
             }
             else
             {
@@ -1020,7 +1023,9 @@ namespace RFIDLib
                 {
                     if (serialPort == null)
                     {
-                        serialPort = serialPortUtils.OpenPort(textBoxCom.Text.Trim(), logHandleUtils);
+                        serialPort = serialPortUtils.OpenPort(comName, logHandleUtils);
+                        textBox_info_box.Text = $"{DateTime.Now.ToLongTimeString()} RFID-{comName}已打开";
+                        logHandleUtils.writeLog($"{DateTime.Now.ToLongTimeString()} RFID-{comName}已打开");
                     }
                     if (serialPort != null)
                     {
@@ -1029,11 +1034,15 @@ namespace RFIDLib
                             if (!serialPort.IsOpen)
                             {
                                 serialPort.Open();
+                                textBox_info_box.Text = $"{DateTime.Now} RFID-{comName}已打开";
+                                logHandleUtils.writeLog($"{DateTime.Now} RFID-{comName}已打开");
                             }
+                            button_com.Content = "已打开";
                         }
                         else if (serialPort.IsOpen)
                         {
-                            serialPort.Close();
+                            serialPortUtils.ClosePort(serialPort);
+                            button_com.Content = "已关闭";
                         }
                     }
                 }
@@ -1042,6 +1051,25 @@ namespace RFIDLib
             {
                 RfidInfo info = new RfidInfo() { InfoType = RFIDInfoEnum.PortError, Content = $"RFID串口操作失败{ex.Message}" };
                 SendRfidOperateEvent(info);
+            }
+        }
+
+        private void button_com_Click(object sender, RoutedEventArgs e)
+        {
+            if (serialPort != null)
+            {
+                if (serialPort.IsOpen)
+                {
+                    SerialPortHandle(false);
+                }
+                else
+                {
+                    SerialPortHandle(true);
+                }
+            }
+            else
+            {
+                SerialPortHandle(true);
             }
         }
     }

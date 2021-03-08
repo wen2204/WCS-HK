@@ -33,7 +33,7 @@
                 <Label FontSize="12" Content="结束时间：" Margin="0" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Right" HorizontalContentAlignment="Right"/>
                 <wk:DateTimePicker FontSize="12" x:Name="endtime" Width="180" Margin="0,8" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="26" />
             </StackPanel>
-            <ComboBox x:Name="cmbProduct" Grid.Column="2" ItemsSource="{Binding ParameterList}" DisplayMemberPath="product_name"  SelectedValuePath="product_name"  pu:ComboBoxHelper.Header="产品型号选择"  pu:ComboBoxHelper.HeaderWidth="100" pu:ComboBoxHelper.CornerRadius="5" VerticalAlignment="Center" Height="32" Margin="5,0" Padding="0"/>
+            <ComboBox x:Name="cmbProduct" Grid.Column="2" SelectedValue="{Binding product_name}" ItemsSource="{Binding  ParameterList}" DisplayMemberPath="product_name"  SelectedValuePath="product_name"  pu:ComboBoxHelper.Header="产品型号选择"  pu:ComboBoxHelper.HeaderWidth="100" pu:ComboBoxHelper.CornerRadius="5" VerticalAlignment="Center" Height="32" Margin="5,0" Padding="0"/>
             <Button Content="查询" x:Name="btnQuery" Width="auto" Margin="5,6" Grid.Column="3" VerticalAlignment="Center" Height="30" HorizontalContentAlignment="Center" Click="btnQuery_Click">
             </Button>
             <Button Content="删除" x:Name="btnDelete" Width="auto" Margin="5,6" Grid.Column="4" VerticalAlignment="Center" Height="30" HorizontalContentAlignment="Center" Click="btnDelete_Click">

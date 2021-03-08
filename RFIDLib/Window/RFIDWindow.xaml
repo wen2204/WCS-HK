@@ -53,5 +53,6 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.HotTrackColorKey}}"/>
             </Label.Foreground>
         </Label>
+        <Button x:Name="button_com" Content="串口打开" Grid.Column="4" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Width="89" Height="25" Grid.ColumnSpan="2" Click="button_com_Click"/>
     </Grid>
 </Page>

@@ -16,12 +16,12 @@ namespace iFactoryApp.ViewModel
     public class ReportViewModel : ViewModelBase
     {
         public ObservableCollection<ProductParameter> ParameterList { set; get; } = new ObservableCollection<ProductParameter>();
-        private readonly ITaskOrderHistoryViewService _historyService;
+        private readonly ITaskOrderHistoryService _historyService;
         private readonly IProductParameterService _productParameterService;
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        public ReportViewModel(ITaskOrderHistoryViewService taskOrderHistoryService,
+        public ReportViewModel(ITaskOrderHistoryService taskOrderHistoryService,
                                IProductParameterService productParameterService)
         {
             _historyService = taskOrderHistoryService;
@@ -49,12 +49,12 @@ namespace iFactoryApp.ViewModel
         /// <param name="starttime"></param>
         /// <param name="endtime"></param>
         /// <returns></returns>
-        public List<TaskOrderHistoryView> GetHistoryData(DateTime starttime, DateTime endtime,string product_name)
+        public List<TaskOrderHistory> GetHistoryData(DateTime starttime, DateTime endtime,string product_name)
         {
-            List<TaskOrderHistoryView> list = new List<TaskOrderHistoryView>();
+            List<TaskOrderHistory> list = new List<TaskOrderHistory>();
             if (!string.IsNullOrEmpty(product_name))
             {
-                list = _historyService.QueryableToList(x => x.box_insert_time >= starttime && x.box_insert_time <= endtime && x.product_name== product_name);
+                list = _historyService.QueryableToList(x => x.insert_time >= starttime && x.insert_time <= endtime && x.product_name== product_name);
             }
             else
             {

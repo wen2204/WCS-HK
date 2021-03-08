@@ -12,19 +12,34 @@ namespace iFactory.DataService.Model
     public class TaskOrderDetail: BaseNotifyModel
     {
         public int order_id { set; get; }
-        private string _box_barcode;
+        private int _pallet_index;
         /// <summary>
-        /// 箱子条码
+        /// 托盘序号
         /// </summary>
         [SugarColumn(IsNullable = true)]
-        public string box_barcode
+        public int pallet_index
         {
             set
             {
-                _box_barcode = value;
-                NotifyPropertyChanged("box_barcode");
+                _pallet_index = value;
+                NotifyPropertyChanged("pallet_index");
             }
-            get { return _box_barcode; }
+            get { return _pallet_index; }
+        }
+
+        private int _box_count;
+        /// <summary>
+        /// 盒子数量
+        /// </summary>
+        [SugarColumn(IsNullable = true)]
+        public int box_count
+        {
+            set
+            {
+                _box_count = value;
+                NotifyPropertyChanged("box_count");
+            }
+            get { return _box_count; }
         }
 
         private DateTime _insert_time;

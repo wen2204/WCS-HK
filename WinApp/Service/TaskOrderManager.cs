@@ -382,10 +382,6 @@ namespace iFactoryApp.Service
             {
                 if (_taskOrderViewModel.cameraBarcode.product_barcode == _taskOrderViewModel.cameraBarcode.graphic_barcode)//条码一致
                 {
-                    if(_taskOrderViewModel.SelectedModel !=null)
-                    {
-                        _taskOrderViewModel.AddDetail(_taskOrderViewModel.SelectedModel,PreSn1Barcode);//记录扫描成功记录
-                    }
                     flagWrite(2);//比对成功2
                     _systemLogViewModel.AddMewStatus("标签对比成功，写入PLC值=2，开始复位PLC标识");
                     PreSn1Barcode = "";
