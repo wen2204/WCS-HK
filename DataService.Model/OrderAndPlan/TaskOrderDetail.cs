@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace iFactory.DataService.Model
 {
     [SugarTable("task_order_detail")]
-    public class TaskOrderDetail: BaseNotifyModel
+    public class TaskOrderDetail : BaseNotifyModel
     {
         public int order_id { set; get; }
         private int _pallet_index;

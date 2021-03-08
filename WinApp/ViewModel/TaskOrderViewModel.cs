@@ -156,31 +156,19 @@ namespace iFactoryApp.ViewModel
                     {
                         TaskOrderDetailHistory history = new TaskOrderDetailHistory()
                         {
+                            box_count = item.box_count,
                             insert_time = item.insert_time,
-                            box_barcode = item.box_barcode,
-                            order_id = (int)id
+                            order_id = (int)id,
+                            pallet_index = item.pallet_index
                         };
                         _taskOrderDetailHistoryService.Insert(history);
                     }
-                    _taskOrderDetailService.Delete(x => x.order_id == model.id);
                 }
                 Remove(model);
                 return true;
             }
             return false;
 
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="barcode"></param>
-        public void AddDetail(TaskOrder taskOrder,string barcode)
-        {
-            TaskOrderDetail taskOrderDetail = new TaskOrderDetail();
-            taskOrderDetail.order_id = taskOrder.id;
-            taskOrderDetail.insert_time = DateTime.Now;
-            taskOrderDetail.box_barcode = barcode;
-            _taskOrderDetailService.Insert(taskOrderDetail);
         }
         #endregion
     }
